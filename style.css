@@ -1,0 +1,1050 @@
+/* ==========================================================================
+   Sameer Trading Company — Minimalist Apple-Meets-Patisserie Design
+   ========================================================================== */
+
+:root {
+  --bg: #FBF9F6;
+  --surface: #FFFFFF;
+  --soft: #F3EFEA;
+  --cocoa: #1D1512;
+  --cocoa-light: #2C201B;
+  --gold: #C9963B;
+  --gold-soft: #E8BD62;
+
+  --text: #1D1512;
+  --text-muted: #6B6059;
+  --text-light: #FBF9F6;
+  --text-light-muted: rgba(251, 249, 246, 0.7);
+
+  --border: rgba(29, 21, 18, 0.08);
+  --shadow: 0 20px 50px rgba(29, 21, 18, 0.06);
+  --shadow-hover: 0 28px 60px rgba(29, 21, 18, 0.11);
+
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+
+.container {
+  width: min(1180px, 92%);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: clamp(4.5rem, 9vw, 7.5rem);
+}
+
+/* ==========================================================================
+   Apple-Style Glass Header
+   ========================================================================== */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: rgba(251, 249, 246, 0.82);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.brand__logo {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.brand__name {
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: -0.02em;
+}
+
+.brand__sub {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+
+.nav {
+  display: flex;
+  gap: 2.2rem;
+}
+
+.nav a {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: color 0.25s ease;
+}
+
+.nav a:hover { color: var(--text); }
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.bag-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.52rem 0.95rem;
+  border-radius: 999px;
+  background: var(--soft);
+  font-size: 0.84rem;
+  font-weight: 600;
+  transition: background-color 0.25s ease;
+}
+
+.bag-btn:hover { background: #E9E2D9; }
+
+.bag-count {
+  min-width: 20px;
+  height: 20px;
+  padding-inline: 5px;
+  border-radius: 999px;
+  background: var(--cocoa);
+  color: var(--text-light);
+  font-size: 0.72rem;
+  display: inline-grid;
+  place-items: center;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.7rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition: transform 0.3s var(--ease), background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover { transform: translateY(-1px); }
+.btn--sm { padding: 0.58rem 1.15rem; font-size: 0.84rem; }
+.btn--full { width: 100%; }
+
+.btn--dark {
+  background: var(--cocoa);
+  color: var(--text-light);
+}
+
+.btn--dark:hover {
+  background: var(--cocoa-light);
+  box-shadow: 0 12px 24px rgba(29, 21, 18, 0.16);
+}
+
+.btn--soft {
+  background: var(--soft);
+  color: var(--text);
+}
+
+.btn--soft:hover { background: #E9E2D9; }
+
+.menu-btn {
+  display: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--soft);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.menu-btn span {
+  width: 16px;
+  height: 1.6px;
+  background: var(--text);
+  transition: transform 0.3s var(--ease);
+}
+
+.menu-btn.is-open span:first-child { transform: translateY(3.3px) rotate(45deg); }
+.menu-btn.is-open span:last-child { transform: translateY(-3.3px) rotate(-45deg); }
+
+/* Mobile Drawer */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 850;
+  background: var(--bg);
+  padding: 6.5rem 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-drawer.is-open { opacity: 1; pointer-events: auto; }
+
+.mobile-drawer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.mobile-drawer__nav a {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+}
+
+.mobile-drawer__bottom p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* ==========================================================================
+   1. Centered Apple-Style Hero
+   ========================================================================== */
+.hero {
+  padding-top: clamp(3.5rem, 7vw, 5.5rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.hero__inner {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero__eyebrow {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  margin-bottom: 1.1rem;
+}
+
+.hero__title {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 6.2vw, 5.2rem);
+  font-weight: 500;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  max-width: 14ch;
+  margin-bottom: 1.4rem;
+}
+
+.hero__title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero__subtitle {
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
+  color: var(--text-muted);
+  max-width: 56ch;
+  margin-bottom: 2.2rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.85rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.hero__showcase {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  aspect-ratio: 21 / 9;
+  min-height: 280px;
+  background: var(--cocoa);
+  box-shadow: var(--shadow);
+}
+
+.hero__showcase img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ==========================================================================
+   2. Ingredients Grid
+   ========================================================================== */
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2.75rem;
+}
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.eyebrow--gold { color: var(--gold-soft); }
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3.1rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  padding: 0.3rem;
+  background: var(--soft);
+  border-radius: 999px;
+}
+
+.tab {
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.tab.is-active {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 2px 10px rgba(29, 21, 18, 0.06);
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card--wide {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+}
+
+.card.is-hidden { display: none; }
+
+.card__img-wrap {
+  min-height: 230px;
+  overflow: hidden;
+  background: var(--soft);
+}
+
+.card__img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.65s var(--ease);
+}
+
+.card:hover .card__img-wrap img { transform: scale(1.04); }
+
+.fallback-box {
+  width: 100%;
+  height: 100%;
+  min-height: 230px;
+  background: linear-gradient(135deg, #3A251C, #7A5236);
+  color: var(--text-light);
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.card__body {
+  padding: 1.65rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex: 1;
+}
+
+.card__tag {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.card__title {
+  font-family: var(--serif);
+  font-size: 1.55rem;
+  font-weight: 500;
+  margin-block: 0.25rem 0.5rem;
+}
+
+.card__desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+}
+
+.card__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.pill-add {
+  padding: 0.48rem 0.95rem;
+  border-radius: 999px;
+  background: var(--soft);
+  font-size: 0.82rem;
+  font-weight: 600;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.pill-add:hover { background: var(--cocoa); color: var(--text-light); }
+.pill-add.is-added { background: var(--gold-soft); color: var(--cocoa); }
+
+.link-wa {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: color 0.25s ease;
+}
+
+.link-wa:hover { color: var(--text); }
+
+/* ==========================================================================
+   3. Warm Bakery Promise
+   ========================================================================== */
+.promise {
+  background: var(--soft);
+}
+
+.promise__head {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.promise__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.promise__card {
+  background: var(--surface);
+  border-radius: 24px;
+  padding: 2.2rem;
+  border: 1px solid var(--border);
+}
+
+.promise__card h3 {
+  font-family: var(--serif);
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 0.65rem;
+}
+
+.promise__card p {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   4. Visit & Quick Inquiry
+   ========================================================================== */
+.visit__grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.visit__form-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  padding: clamp(1.75rem, 4vw, 3rem);
+  box-shadow: var(--shadow);
+}
+
+.visit__title {
+  font-family: var(--serif);
+  font-size: clamp(1.85rem, 3vw, 2.5rem);
+  font-weight: 500;
+  margin-bottom: 0.4rem;
+}
+
+.visit__sub {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.clean-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  font: inherit;
+  font-size: 0.94rem;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.field input:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: var(--surface);
+}
+
+.visit__store-card {
+  background: var(--cocoa);
+  color: var(--text-light);
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.visit__store-info {
+  padding: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.visit__store-info h3 {
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.store-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.store-label {
+  display: block;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--gold-soft);
+  margin-bottom: 0.15rem;
+}
+
+.store-list p,
+.store-list a {
+  font-size: 0.94rem;
+  color: var(--text-light-muted);
+}
+
+.store-list a:hover { color: var(--text-light); }
+
+.store-map {
+  height: 220px;
+  border-top: 1px solid rgba(251, 249, 246, 0.1);
+}
+
+.store-map iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: grayscale(100%) invert(92%) contrast(88%);
+}
+
+/* ==========================================================================
+   5. Warm Interactive Dark-Cocoa Footer
+   ========================================================================== */
+.footer {
+  position: relative;
+  background: var(--cocoa);
+  color: var(--text-light);
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  overflow: hidden;
+}
+
+.footer__glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(560px circle at var(--gx, 50%) var(--gy, 40%), rgba(232, 189, 98, 0.14), transparent 62%);
+}
+
+.footer__inner { position: relative; z-index: 2; }
+
+.footer__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(251, 249, 246, 0.1);
+}
+
+.footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.footer__name { font-weight: 600; font-size: 0.98rem; }
+.footer__sub { font-size: 0.82rem; color: var(--text-light-muted); }
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.88rem;
+  color: var(--text-light-muted);
+}
+
+.footer__links a:hover,
+.footer__copy-btn:hover,
+.footer__top-btn:hover { color: var(--gold-soft); }
+
+.footer__top-btn {
+  padding: 0.45rem 0.95rem;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 249, 246, 0.18);
+  color: var(--text-light);
+}
+
+.footer__wordmark {
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 9.5vw, 8.8rem);
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  padding-block: 2rem;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+}
+
+.fw-char {
+  display: inline-block;
+  color: rgba(251, 249, 246, 0.12);
+  transition: transform 0.35s var(--ease), color 0.3s ease;
+}
+
+.fw-char:hover {
+  transform: translateY(-12px);
+  color: var(--gold-soft);
+}
+
+.fw-space { width: 0.28em; display: inline-block; }
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(251, 249, 246, 0.1);
+  font-size: 0.82rem;
+  color: var(--text-light-muted);
+}
+
+/* ==========================================================================
+   Slide-Over Inquiry List & Toast
+   ========================================================================== */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 950;
+  background: rgba(29, 21, 18, 0.45);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.drawer-backdrop.is-open { opacity: 1; pointer-events: auto; }
+
+.bag-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 960;
+  width: min(400px, 92vw);
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.4s var(--ease);
+}
+
+.bag-drawer.is-open { transform: translateX(0); }
+
+.bag-drawer__head {
+  padding: 1.4rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bag-drawer__head h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 500; }
+
+.bag-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--soft);
+  font-size: 1.3rem;
+}
+
+.bag-drawer__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.bag-empty { margin: auto; text-align: center; color: var(--text-muted); font-size: 0.92rem; }
+
+.bag-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.95rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.bag-row__name { font-size: 0.88rem; font-weight: 600; }
+
+.qty {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--soft);
+  border-radius: 999px;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.qty button { width: 22px; height: 22px; border-radius: 50%; background: var(--surface); }
+
+.bag-drawer__foot {
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.bag-clear { font-size: 0.82rem; color: var(--text-muted); text-align: center; }
+
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translate(-50%, 16px);
+  z-index: 1000;
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+  background: var(--cocoa);
+  color: var(--text-light);
+  font-size: 0.84rem;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s var(--ease);
+}
+
+.toast.is-shown { opacity: 1; transform: translate(-50%, 0); }
+
+/* Gentle Scroll Reveal (Visible by Default) */
+.js .fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+.js .fade-up.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 980px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .card--wide { grid-column: span 2; }
+  .promise__grid, .visit__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  .nav, .header__actions .btn { display: none; }
+  .menu-btn { display: flex; }
+
+  .hero__showcase { aspect-ratio: 16 / 10; }
+  .card-grid { grid-template-columns: 1fr; }
+  .card--wide { grid-column: span 1; grid-template-columns: 1fr; }
+  .field-row { grid-template-columns: 1fr; }
+}
+
+
+.footer__bottom {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.25rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(251, 249, 246, 0.1);
+  font-size: 0.82rem;
+  color: var(--text-light-muted);
+}
+
+.footer__tagline {
+  text-align: right;
+}
+
+/* Integrated Bakery-Seal Credit (@zyrac__) */
+.zyrac-seal {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.42rem 1.2rem 0.42rem 0.48rem;
+  border-radius: 999px;
+  background: rgba(251, 249, 246, 0.04);
+  border: 1px solid rgba(232, 189, 98, 0.25);
+  overflow: hidden;
+  transition: border-color 0.35s var(--ease), box-shadow 0.4s var(--ease), transform 0.35s var(--ease);
+  will-change: transform;
+}
+
+.zyrac-seal:hover {
+  border-color: rgba(232, 189, 98, 0.75);
+  box-shadow: 0 10px 28px rgba(232, 189, 98, 0.15);
+}
+
+.zyrac-seal__shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 20%,
+    rgba(232, 189, 98, 0.22) 48%,
+    rgba(255, 245, 220, 0.35) 50%,
+    rgba(232, 189, 98, 0.22) 52%,
+    transparent 80%
+  );
+  transform: translateX(-120%);
+  transition: transform 0.8s var(--ease);
+  pointer-events: none;
+}
+
+.zyrac-seal:hover .zyrac-seal__shimmer {
+  transform: translateX(120%);
+}
+
+.zyrac-seal__emblem {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(29, 21, 18, 0.9);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.seal-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: slowSpin 18s linear infinite;
+}
+
+.zyrac-seal:hover .seal-ring {
+  animation-duration: 5s;
+}
+
+.seal-icon {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.35s var(--ease);
+}
+
+.zyrac-seal:hover .seal-icon {
+  transform: scale(1.12);
+}
+
+@keyframes slowSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.zyrac-seal__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  text-align: left;
+}
+
+.zyrac-seal__label {
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(251, 249, 246, 0.52);
+}
+
+.zyrac-seal__handle-slot {
+  position: relative;
+  display: block;
+  height: 1.25rem;
+  min-width: 118px;
+  overflow: hidden;
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gold-soft);
+}
+
+.handle-main,
+.handle-hover {
+  display: block;
+  white-space: nowrap;
+  transition: transform 0.38s var(--ease), opacity 0.3s ease;
+}
+
+.handle-hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(110%);
+  opacity: 0;
+  color: var(--text-light);
+}
+
+.zyrac-seal:hover .handle-main {
+  transform: translateY(-110%);
+  opacity: 0;
+}
+
+.zyrac-seal:hover .handle-hover {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Mobile Stack */
+@media (max-width: 820px) {
+  .footer__bottom {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .footer__tagline {
+    text-align: center;
+  }
+}

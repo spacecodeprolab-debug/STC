@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sameer Trading Company — Bakery &amp; Cake Raw Materials, Ahmedabad</title>
+  <meta name="description" content="Sameer Trading Company in Kalupur, Ahmedabad supplies premium bakery and cake shop raw materials — premixes, whipping creams, glazes, crushes, jams, food colors, essences, and compounds." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Minimalist Apple-Style Glass Header -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="brand" aria-label="Sameer Trading Company Home">
+        <svg class="brand__logo" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="60" cy="60" r="54" fill="#2C1D17" stroke="#D4A345" stroke-width="3"/>
+          <rect x="6" y="54" width="14" height="12" rx="6" fill="#D4A345"/>
+          <rect x="100" y="54" width="14" height="12" rx="6" fill="#D4A345"/>
+          <rect x="18" y="45" width="84" height="30" rx="6" fill="#E8BD62"/>
+          <text x="60" y="66" text-anchor="middle" fill="#1F1511" font-family="'Playfair Display', serif" font-weight="600" font-size="22" letter-spacing="2">STC</text>
+        </svg>
+        <div class="brand__text">
+          <span class="brand__name">Sameer Trading Company</span>
+          <span class="brand__sub">Kalupur, Ahmedabad</span>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#ingredients">Ingredients</a>
+        <a href="#promise">Why Bakers Trust Us</a>
+        <a href="#visit">Visit Store</a>
+      </nav>
+
+      <div class="header__actions">
+        <button class="bag-btn" id="openBagBtn" aria-label="Open Inquiry List">
+          <span>My List</span>
+          <span class="bag-count" id="bagCount">0</span>
+        </button>
+
+        <button class="btn btn--dark btn--sm" data-wa="Hello Sameer Trading Company, I would like to inquire about bakery raw materials.">
+          WhatsApp Us
+        </button>
+
+        <button class="menu-btn" id="menuBtn" aria-label="Open Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <nav class="mobile-drawer__nav">
+      <a href="#ingredients">Ingredients</a>
+      <a href="#promise">Why Bakers Trust Us</a>
+      <a href="#visit">Visit Store</a>
+    </nav>
+    <div class="mobile-drawer__bottom">
+      <p>Shop No. 11, Cellar, Attarwala Chamber, Opp. Kalupur Tower, Ahmedabad</p>
+      <button class="btn btn--dark btn--full" data-wa="Hello Sameer Trading Company, please share your bakery raw material rate list.">
+        Message on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <main id="top">
+    <!-- 1. Centered, Airy Apple-Style Hero -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <p class="hero__eyebrow fade-up">All Type of Bakery Raw Material Available</p>
+
+        <h1 class="hero__title fade-up">
+          Pure ingredients for<br />
+          <em>unforgettable</em> bakes.
+        </h1>
+
+        <p class="hero__subtitle fade-up">
+          From soft cake premixes and silky whipping creams to glossy glazes, real fruit crushes, essences, and chocolate compounds—everything cake shops and home bakers need, fresh in Kalupur.
+        </p>
+
+        <div class="hero__actions fade-up">
+          <a href="#ingredients" class="btn btn--dark">Explore Ingredients</a>
+          <button class="btn btn--soft" data-wa="Hello Sameer Trading Company, please share your latest wholesale rate list.">
+            Get Rate List on WhatsApp
+          </button>
+        </div>
+
+        <figure class="hero__showcase fade-up">
+          <img
+            src="https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=1400"
+            alt="Rich chocolate cake with glossy glaze"
+            data-fallback="Crafted for Every Baker"
+          />
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2. Ingredients Showcase (Clean, Minimalist Apple Grid) -->
+    <section class="ingredients section" id="ingredients">
+      <div class="container">
+        <div class="section-head fade-up">
+          <div>
+            <p class="eyebrow">Our Collection</p>
+            <h2 class="section-title">Everything your kitchen loves.</h2>
+          </div>
+
+          <div class="tabs" role="tablist" aria-label="Filter ingredients">
+            <button class="tab is-active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button class="tab" data-filter="bases" role="tab" aria-selected="false">Bases &amp; Creams</button>
+            <button class="tab" data-filter="flavors" role="tab" aria-selected="false">Glazes &amp; Flavors</button>
+            <button class="tab" data-filter="decor" role="tab" aria-selected="false">Colors &amp; Chocolate</button>
+          </div>
+        </div>
+
+        <div class="card-grid" id="cardGrid">
+          <!-- 1. Cake Premixes -->
+          <article class="card card--wide fade-up" data-cat="bases">
+            <div class="card__img-wrap">
+              <img src="https://images.pexels.com/photos/4110003/pexels-photo-4110003.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Cake Premixes" loading="lazy" data-fallback="Cake Premixes" />
+            </div>
+            <div class="card__body">
+              <div>
+                <span class="card__tag">Sponges &amp; Bases</span>
+                <h3 class="card__title">Cake Premixes</h3>
+                <p class="card__desc">Soft, airy sponges with consistent rise every time. Available in Eggless Vanilla, Rich Chocolate, Red Velvet, and Brownie mixes.</p>
+              </div>
+              <div class="card__foot">
+                <button class="pill-add" data-id="premix" data-name="Cake Premixes (Vanilla / Chocolate / Red Velvet)">+ Add to List</button>
+                <button class="link-wa" data-wa="Hello Sameer Trading Company, I want rates for Cake Premixes.">Ask on WhatsApp &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Whipping Creams -->
+          <article class="card fade-up" data-cat="bases">
+            <div class="card__img-wrap">
+              <img src="https://images.pexels.com/photos/1028714/pexels-photo-1028714.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Whipping Creams" loading="lazy" data-fallback="Whipping Creams" />
+            </div>
+            <div class="card__body">
+              <div>
+                <span class="card__tag">Frosting</span>
+                <h3 class="card__title">Whipping Creams</h3>
+                <p class="card__desc">Smooth, non-dairy creams that whip into silky, stable peaks—even in warm kitchens.</p>
+              </div>
+              <div class="card__foot">
+                <button class="pill-add" data-id="cream" data-name="Whipping Creams">+ Add to List</button>
+                <button class="link-wa" data-wa="Hello Sameer Trading Company, I want rates for Whipping Creams.">Ask on WhatsApp &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Flavour Glazes -->
+          <article class="card fade-up" data-cat="flavors">
+            <div class="card__img-wrap">
+              <img src="https://images.pexels.com/photos/4109998/pexels-photo-4109998.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Flavour Glazes" loading="lazy" data-fallback="Flavour Glazes" />
+            </div>
+            <div class="card__body">
+              <div>
+                <span class="card__tag">Finishing</span>
+                <h3 class="card__title">Flavour &amp; Mirror Glazes</h3>
+                <p class="card__desc">Effortless glass-like shine in Neutral, Dark Chocolate, Caramel, and vibrant fruit glazes.</p>
+              </div>
+              <div class="card__foot">
+                <button class="pill-add" data-id="glaze" data-name="Flavour & Mirror Glazes">+ Add to List</button>
+                <button class="link-wa" data-wa="Hello Sameer Trading Company, I want rates for Flavour Glazes.">Ask on WhatsApp &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Fruit Crushes & Jams -->
+          <article class="card fade-up" data-cat="flavors">
+            <div class="card__img-wrap">
+              <img src="https://images.pexels.com/photos/1132558/pexels-photo-1132558.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Fruit Crushes and Jams" loading="lazy" data-fallback="Fruit Crushes & Jams" />
+            </div>
+            <div class="card__body">
+              <div>
+                <span class="card__tag">Fillings</span>
+                <h3 class="card__title">Fruit Crushes &amp; Jams</h3>
+                <p class="card__desc">Juicy Strawberry, Alphonso Mango, Blueberry, Pineapple, and Mixed Fruit crushes for rich cake layers.</p>
+              </div>
+              <div class="card__foot">
+                <button class="pill-add" data-id="crush" data-name="Fruit Crushes & Jams">+ Add to List</button>
+                <button class="link-wa" data-wa="Hello Sameer Trading Company, I want rates for Fruit Crushes & Jams.">Ask on WhatsApp &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Essences & Emulsions -->
+          <article class="card fade-up" data-cat="flavors">
+            <div class="card__img-wrap">
+              <img src="https://images.pexels.com/photos/4099238/pexels-photo-4099238.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Essences and Emulsions" loading="lazy" data-fallback="Essences & Emulsions" />
+            </div>
+            <div class="card__body">
+              <div>
+                <span class="card__tag">Aroma</span>
+                <h3 class="card__title">Essences &amp; Emulsions</h3>
+                <p class="card__desc">Rich bakery-grade flavors that keep their aroma after baking—Vanilla, Butterscotch, Rasmalai, Rose &amp; more.</p>
+              </div>
+              <div class="card__foot">
+                <button class="pill-add" data-id="essence" data-name="Essences & Emulsions">+ Add to List</button>
+                <button class="link-wa" data-wa="Hello Sameer Trading Company, I want rates for Essences & Emulsions.">Ask on WhatsApp &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Food Colors -->
+          <article class="card fade-up" data-cat="decor">
+            <div class="card__img-wrap">
+              <img src="https://images.pexels.com/photos/1998634/pexels-photo-1998634.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Food Colors" loading="lazy" data-fallback="Food Colors" />
+            </div>
+            <div class="card__body">
+              <div>
+                <span class="card__tag">Decor</span>
+                <h3 class="card__title">Food Colors &amp; Lustre</h3>
+                <p class="card__desc">Vibrant, no-aftertaste Gel Colors, Oil-Based Chocolate Colors, and Edible Metallic Gold Dust.</p>
+              </div>
+              <div class="card__foot">
+                <button class="pill-add" data-id="color" data-name="Food Colors & Lustre Dust">+ Add to List</button>
+                <button class="link-wa" data-wa="Hello Sameer Trading Company, I want rates for Food Colors.">Ask on WhatsApp &rarr;</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. Chocolate Compounds & More -->
+          <article class="card card--wide fade-up" data-cat="decor">
+            <div class="card__img-wrap">
+              <img src="https://images.pexels.com/photos/65882/chocolate-dark-coffee-confiserie-65882.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Chocolate Compounds and Bakery Essentials" loading="lazy" data-fallback="Chocolate Compounds" />
+            </div>
+            <div class="card__body">
+              <div>
+                <span class="card__tag">Chocolate &amp; More</span>
+                <h3 class="card__title">Compounds, Fillings &amp; Cake Boxes</h3>
+                <p class="card__desc">Velvety Dark, Milk, and White Chocolate Compounds, Choco Chips, Sprinkles, Fondant, Cake Boards, and Boxes—all under one roof.</p>
+              </div>
+              <div class="card__foot">
+                <button class="pill-add" data-id="compound" data-name="Chocolate Compounds, Fillings & Cake Boxes">+ Add to List</button>
+                <button class="link-wa" data-wa="Hello Sameer Trading Company, I want rates for Chocolate Compounds & Cake Boxes.">Ask on WhatsApp &rarr;</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Warm Bakery Promise Section -->
+    <section class="promise section" id="promise">
+      <div class="container">
+        <div class="promise__head fade-up">
+          <p class="eyebrow">Why Bakers Choose Us</p>
+          <h2 class="section-title">Great cakes start with<br />ingredients you can trust.</h2>
+        </div>
+
+        <div class="promise__grid">
+          <div class="promise__card fade-up">
+            <h3>Fresh Stock, Always</h3>
+            <p>Fast-moving shelves mean fresh manufacturing dates on whipping creams, premixes, and chocolate compounds every single visit.</p>
+          </div>
+
+          <div class="promise__card fade-up">
+            <h3>Honest Wholesale Prices</h3>
+            <p>Fair, direct pricing for cake shops, cloud kitchens, and home bakers—so your taste stays rich and your margins stay healthy.</p>
+          </div>
+
+          <div class="promise__card fade-up">
+            <h3>One Stop in Kalupur</h3>
+            <p>From 5kg premixes to edible gold dust and cake boxes, pick up your entire baking list right opposite Kalupur Tower.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Visit & Quick Message -->
+    <section class="visit section" id="visit">
+      <div class="container visit__grid">
+        <div class="visit__form-card fade-up">
+          <p class="eyebrow">Quick Order Inquiry</p>
+          <h2 class="visit__title">Tell us what you’re baking.</h2>
+          <p class="visit__sub">Send your list directly to our WhatsApp counter for today’s wholesale rates.</p>
+
+          <form class="clean-form" id="inquiryForm" novalidate>
+            <div class="field">
+              <label for="uName">Your Name</label>
+              <input type="text" id="uName" placeholder="e.g. Aarav Patel" required />
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="uShop">Bakery / Kitchen Name</label>
+                <input type="text" id="uShop" placeholder="e.g. Sweet Crumbs" required />
+              </div>
+              <div class="field">
+                <label for="uPhone">Phone Number</label>
+                <input type="tel" id="uPhone" placeholder="+91 98XXX XXXXX" required />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="uItems">Items Needed</label>
+              <textarea id="uItems" rows="3" placeholder="e.g. Chocolate Premix, Whipping Cream, Dark Compound, Strawberry Crush..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--dark btn--full">Send on WhatsApp</button>
+          </form>
+        </div>
+
+        <div class="visit__store-card fade-up">
+          <div class="visit__store-info">
+            <p class="eyebrow eyebrow--gold">Visit Our Shop</p>
+            <h3>Sameer Trading Company</h3>
+
+            <div class="store-list">
+              <div>
+                <span class="store-label">Address</span>
+                <p>Shop No. 11, Cellar, Attarwala Chamber, Opp. Kalupur Tower, Kalupur, Ahmedabad - 380001</p>
+              </div>
+              <div>
+                <span class="store-label">Phone &amp; WhatsApp</span>
+                <a href="tel:+919898864510">+91 98988 64651</a>
+              </div>
+              <div>
+                <span class="store-label">Email</span>
+                <a href="mailto:sameertrading2309@gmail.com">sameertrading2309@gmail.com</a>
+              </div>
+              <div>
+                <span class="store-label">Hours</span>
+                <p>Monday – Saturday · 10:00 AM – 8:00 PM</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="store-map">
+            <iframe
+              title="Sameer Trading Company Location"
+              src="https://www.google.com/maps?q=Attarwala+Chamber,+Opp.+Kalupur+Tower,+Kalupur,+Ahmedabad,+Gujarat+380001&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 5. Warm Interactive Dark-Cocoa Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer__glow" id="footerGlow" aria-hidden="true"></div>
+
+    <div class="container footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <svg class="brand__logo" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="60" cy="60" r="54" fill="#2C1D17" stroke="#D4A345" stroke-width="3"/>
+            <rect x="6" y="54" width="14" height="12" rx="6" fill="#D4A345"/>
+            <rect x="100" y="54" width="14" height="12" rx="6" fill="#D4A345"/>
+            <rect x="18" y="45" width="84" height="30" rx="6" fill="#E8BD62"/>
+            <text x="60" y="66" text-anchor="middle" fill="#1F1511" font-family="'Playfair Display', serif" font-weight="600" font-size="22" letter-spacing="2">STC</text>
+          </svg>
+          <div>
+            <p class="footer__name">Sameer Trading Company</p>
+            <p class="footer__sub">Opp. Kalupur Tower, Ahmedabad</p>
+          </div>
+        </div>
+
+        <div class="footer__links">
+          <a href="#ingredients">Ingredients</a>
+          <a href="#promise">Why Us</a>
+          <a href="#visit">Visit Store</a>
+          <button class="footer__copy-btn" data-copy="sameertrading2309@gmail.com">Copy Email</button>
+          <button class="footer__top-btn" id="backToTop" aria-label="Back to top">&uarr; Top</button>
+        </div>
+      </div>
+
+      <!-- Interactive Hover-Reactive Wordmark -->
+      <div class="footer__wordmark" id="footerWordmark" aria-label="Sameer Trading">Sameer Trading</div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">&copy; <span id="year"></span> Sameer Trading Company.</p>
+
+        <!-- Integrated Bakery-Seal Credit for @zyrac__ -->
+        <a
+          href="https://www.instagram.com/zyrac__/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="zyrac-seal"
+          id="zyracSeal"
+          aria-label="Website crafted by @zyrac__ on Instagram"
+        >
+          <span class="zyrac-seal__shimmer" aria-hidden="true"></span>
+
+          <span class="zyrac-seal__emblem" aria-hidden="true">
+            <svg class="seal-ring" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="30" cy="30" r="26" stroke="#E8BD62" stroke-width="1.2" stroke-dasharray="3 3" stroke-opacity="0.7"/>
+              <circle cx="30" cy="30" r="21" stroke="#E8BD62" stroke-width="0.8" stroke-opacity="0.35"/>
+            </svg>
+            <svg class="seal-icon" viewBox="0 0 24 24" fill="none" stroke="#E8BD62" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="0.9" fill="#E8BD62" stroke="none"/>
+            </svg>
+          </span>
+
+          <span class="zyrac-seal__text">
+            <span class="zyrac-seal__label">Freshly Baked By</span>
+            <span class="zyrac-seal__handle-slot">
+              <span class="handle-main">@zyrac__</span>
+              <span class="handle-hover">Follow @zyrac__ &nearr;</span>
+            </span>
+          </span>
+        </a>
+
+        <p class="footer__tagline">All Type of Bakery Raw Material Available</p>
+      </div>
+    </div>
+    
+  </footer>
+
+  <!-- Slide-Over Inquiry List -->
+  <div class="drawer-backdrop" id="bagBackdrop" aria-hidden="true"></div>
+  <aside class="bag-drawer" id="bagDrawer" aria-hidden="true" aria-label="Your Inquiry List">
+    <div class="bag-drawer__head">
+      <h3>Your Inquiry List</h3>
+      <button class="bag-close" id="closeBagBtn" aria-label="Close">&times;</button>
+    </div>
+    <div class="bag-drawer__body" id="bagBody"></div>
+    <div class="bag-drawer__foot">
+      <button class="btn btn--dark btn--full" id="sendBagBtn">Send List on WhatsApp</button>
+      <button class="bag-clear" id="clearBagBtn">Clear List</button>
+    </div>
+  </aside>
+
+  <!-- Gentle Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
