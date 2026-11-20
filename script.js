@@ -3,7 +3,7 @@
    ========================================================================== */
 
 // 1. UPDATE WHATSAPP NUMBER (Replace the last '0' with the final digit)
-const WHATSAPP_NUMBER = "919898864651";
+const WHATSAPP_NUMBER = "919898251112";
 
 // 2. SHARED CATEGORY IMAGES (Replace any item's image with your own URL anytime)
 const IMG = {
